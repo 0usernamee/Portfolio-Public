@@ -1,0 +1,356 @@
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  background: rgba(255, 255, 255, 0.03);
+  opacity: 1;
+}
+
+.cardOpen {
+  border-color: rgba(245, 107, 9, 0.35);
+  box-shadow: 0 0 0 1px rgba(245, 107, 9, 0.14);
+}
+
+.cardClosed {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.cardClosed:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.cardButton {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  text-align: left;
+  padding: 1.8rem;
+  opacity: 1;
+}
+
+.leftMeta {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  opacity: 1;
+}
+
+.indexLabel {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.42);
+  min-width: 3.2rem;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.15rem, 2vw, 1.38rem);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.96);
+  opacity: 1;
+}
+
+.shortDesc {
+  margin: 0;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.62);
+  opacity: 1;
+}
+
+.toggleMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.64);
+  opacity: 1;
+}
+
+.chevron {
+  display: inline-flex;
+  transition: transform 0.3s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.expanded {
+  overflow: hidden;
+}
+
+.expandedContent {
+  padding: 0 1.8rem 2.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 2.2rem;
+  padding-top: 1.2rem;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.artifactPlaceholder {
+  aspect-ratio: 16 / 10;
+  border-radius: 0.86rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(
+    145deg,
+    rgba(245, 107, 9, 0.14) 0%,
+    rgba(255, 255, 255, 0.04) 40%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+.artifactMeta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.artifactMeta p {
+  margin: 0;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.34);
+  font-weight: 700;
+}
+
+.artifactDot {
+  width: 0.32rem;
+  height: 0.32rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.65rem;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.blockTitle,
+.blockTitleMuted {
+  margin: 0;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 800;
+}
+
+.blockTitle {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.blockTitleMuted {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.blockText {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 300;
+}
+
+.decisionList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.86rem;
+  margin: 0;
+  padding: 0;
+}
+
+.decisionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.decisionItem span {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.54);
+}
+
+.checkIcon {
+  color: rgba(255, 255, 255, 0.42);
+  margin-top: 0.11rem;
+  flex-shrink: 0;
+}
+
+.impactCard {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.86rem;
+  background: rgba(255, 255, 255, 0.015);
+  padding: 1rem;
+}
+
+.impactTag {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  transform: translateY(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #111524;
+  border-radius: 999px;
+  padding: 0.2rem 0.48rem;
+  font-size: 0.53rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.48);
+  font-weight: 700;
+}
+
+.impactCard p {
+  margin: 0;
+  font-style: italic;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.83rem;
+}
+
+.comparison {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.comparisonHeader {
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+
+.comparisonHeader h4 {
+  margin: 0;
+  font-size: 0.57rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.comparisonHeader p {
+  margin: 0.35rem 0 0;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.comparisonGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.comparisonColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.versionLabel,
+.versionLabelStrong {
+  font-size: 0.61rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.versionLabel {
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.versionLabelStrong {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.versionPlaceholder {
+  aspect-ratio: 16 / 9;
+  border-radius: 0.74rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.versionCaption,
+.versionCaptionStrong {
+  margin: 0;
+  font-size: 0.73rem;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.versionCaption {
+  color: rgba(255, 255, 255, 0.34);
+}
+
+.versionCaptionStrong {
+  color: rgba(255, 255, 255, 0.46);
+}
+
+@media (max-width: 940px) {
+  .cardButton {
+    padding: 1.2rem;
+  }
+
+  .expandedContent {
+    padding: 0 1.2rem 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .leftMeta {
+    gap: 0.9rem;
+  }
+
+  .shortDesc {
+    font-size: 0.75rem;
+  }
+
+  .toggleMeta {
+    font-size: 0.52rem;
+  }
+
+  .comparisonGrid {
+    grid-template-columns: 1fr;
+  }
+}

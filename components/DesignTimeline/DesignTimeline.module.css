@@ -1,0 +1,120 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  padding: 7.5rem 0 5rem;
+  background: #111524;
+  overflow: hidden;
+}
+
+.glowRight,
+.glowLeft {
+  position: absolute;
+  width: 31.25rem;
+  height: 31.25rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  filter: blur(7.5rem);
+  pointer-events: none;
+}
+
+.glowRight {
+  top: -15.625rem;
+  right: -15.625rem;
+}
+
+.glowLeft {
+  left: -15.625rem;
+  bottom: -15.625rem;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: min(68rem, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.stepList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stepListItem {
+  margin: 0;
+}
+
+.conclusion {
+  margin-top: 7rem;
+  padding-top: 4.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.quote {
+  max-width: 48rem;
+  margin: 0 auto;
+  font-style: italic;
+  line-height: 1.7;
+  font-size: clamp(1.2rem, 2.8vw, 1.85rem);
+  color: rgba(255, 255, 255, 0.28);
+  font-weight: 300;
+}
+
+.quote span {
+  color: rgba(255, 255, 255, 0.52);
+  font-weight: 500;
+}
+
+.conclusionActions {
+  margin-top: 2.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.ctaButton {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.86rem 1.7rem;
+  transition: all 0.28s ease;
+}
+
+.ctaButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.arrowIcon {
+  color: rgba(255, 255, 255, 0.2);
+  animation: floaty 1.6s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.25rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding-top: 5rem;
+  }
+
+  .conclusion {
+    margin-top: 4.6rem;
+    padding-top: 3rem;
+  }
+}

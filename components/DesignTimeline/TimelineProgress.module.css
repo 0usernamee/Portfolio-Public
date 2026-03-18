@@ -1,0 +1,111 @@
+.wrapper {
+  position: relative;
+  width: min(68rem, calc(100% - 2rem));
+  margin: 0 auto 5.6rem;
+  padding: 1rem 0 4.4rem;
+  z-index: 2;
+}
+
+.track,
+.progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  top: 1.4rem;
+  transform: translateY(-50%);
+}
+
+.track {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.progress {
+  background: linear-gradient(90deg, rgba(245, 107, 9, 1) 0%, rgba(245, 107, 9, 0.42) 100%);
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.nodeRow {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.nodeButton {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+.node {
+  width: 0.78rem;
+  height: 0.78rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: #111524;
+  transition: all 0.26s ease;
+}
+
+.nodeActive {
+  border-color: rgba(245, 107, 9, 0.85);
+  background: rgba(245, 107, 9, 0.8);
+  box-shadow: 0 0 10px rgba(245, 107, 9, 0.25);
+}
+
+.nodeCurrent {
+  border-color: rgba(245, 107, 9, 1);
+  box-shadow: 0 0 16px rgba(245, 107, 9, 0.34);
+}
+
+.labelGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  min-width: 5.4rem;
+}
+
+.stepLabel {
+  font-size: 0.58rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.stepLabelActive {
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.titleLabel {
+  font-size: 0.69rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.36);
+  white-space: nowrap;
+}
+
+.titleCurrent {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    overflow-x: auto;
+    padding-bottom: 3.6rem;
+  }
+
+  .nodeRow {
+    min-width: 52rem;
+    gap: 1.5rem;
+    justify-content: space-between;
+  }
+}

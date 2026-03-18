@@ -1,0 +1,50 @@
+.header {
+  width: min(64rem, calc(100% - 2rem));
+  margin: 0 auto 3.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.45rem 0.95rem;
+  margin-bottom: 1.4rem;
+}
+
+.pill span {
+  font-size: 0.67rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.15rem, 6vw, 4rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+}
+
+.subtitle {
+  margin: 1.15rem auto 0;
+  max-width: 42rem;
+  font-size: clamp(1rem, 2.1vw, 1.3rem);
+  line-height: 1.7;
+  font-weight: 300;
+  color: rgba(167, 179, 210, 0.85);
+}
+
+@media (max-width: 900px) {
+  .header {
+    margin-bottom: 2.4rem;
+  }
+}
