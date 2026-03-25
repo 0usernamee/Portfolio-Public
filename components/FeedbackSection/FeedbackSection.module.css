@@ -1,0 +1,139 @@
+.section {
+  margin-top: 72px;
+  padding-top: 64px;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Header ── */
+
+.header {
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-joey-orange);
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+/* ── Version grid ── */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Card ── */
+
+.card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--color-border-hover);
+}
+
+.cardHighlighted {
+  border-color: rgba(245, 107, 9, 0.35);
+  background: linear-gradient(
+    135deg,
+    var(--color-surface) 0%,
+    rgba(245, 107, 9, 0.05) 100%
+  );
+}
+
+.cardHighlighted:hover {
+  border-color: rgba(245, 107, 9, 0.55);
+}
+
+/* ── Card header ── */
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.versionBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-joey-orange);
+  background: var(--color-joey-orange-dim);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.versionLabel {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ── Description ── */
+
+.cardDescription {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* ── Tags ── */
+
+.tagList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.tag {
+  font-size: 0.725rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 3px 9px;
+}
+
+/* ── Current badge ── */
+
+.currentBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: var(--color-joey-orange);
+  padding: 3px 8px;
+  border-radius: 4px;
+}

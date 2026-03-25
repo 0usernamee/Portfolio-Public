@@ -1,0 +1,239 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 8px;
+  position: relative;
+}
+
+/* ── Step header / marker ── */
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition-base);
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.dotActive {
+  border-color: var(--color-joey-orange);
+  box-shadow: 0 0 0 4px var(--color-joey-orange-glow);
+}
+
+.dotInner {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-joey-orange);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.dotActive .dotInner {
+  opacity: 1;
+}
+
+/* ── Card ── */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 0;
+  transition: border-color var(--transition-base);
+  width: 100%;
+  min-height: 160px;
+}
+
+.card:hover {
+  border-color: var(--color-border-hover);
+}
+
+.item:first-child .card {
+  border-color: rgba(245, 107, 9, 0.28);
+  box-shadow: 0 0 0 1px rgba(245, 107, 9, 0.15);
+}
+
+/* ── Trigger (header button) ── */
+
+.trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 14px 20px 8px;
+  text-align: left;
+  background: transparent;
+  transition: background var(--transition-fast);
+}
+
+.trigger:hover {
+  background: var(--color-surface-raised);
+}
+
+.triggerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggleLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.stepLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-joey-orange);
+}
+
+.stepTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+/* ── Chevron ── */
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  transition: transform var(--transition-base), color var(--transition-base);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+  color: var(--color-joey-orange);
+}
+
+/* ── Expandable body ── */
+
+.body {
+  overflow: hidden;
+}
+
+.bodyContent {
+  padding: 8px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Content blocks ── */
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blockLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.objectiveText {
+  font-size: 0.925rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* ── Decision list ── */
+
+.decisionList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.decisionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.925rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+
+.decisionDot {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-joey-orange);
+  margin-top: 9px;
+}
+
+/* ── Impact quote ── */
+
+.impact {
+  position: relative;
+  padding: 14px 16px;
+  background: var(--color-joey-orange-dim);
+  border-left: 2px solid var(--color-joey-orange);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+}
+
+.impactIcon {
+  font-size: 2rem;
+  line-height: 0;
+  vertical-align: -0.5rem;
+  margin-right: 4px;
+  color: var(--color-joey-orange);
+  font-style: normal;
+  font-family: Georgia, serif;
+  opacity: 0.7;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 600px) {
+  .item {
+    gap: 12px;
+  }
+
+  .trigger {
+    padding: 12px 16px 8px;
+  }
+
+  .bodyContent {
+    padding: 8px 16px 18px;
+  }
+}
