@@ -5,11 +5,19 @@ import styles from './DesignTimeline.module.css';
 import { TimelineHeader } from './TimelineHeader';
 import { TimelineProgress } from './TimelineProgress';
 import { TimelineStep } from './TimelineStep';
+import marketResearchImage from '@/app/images/market-reseach.png';
+import uxStrategyImage from '@/app/images/ux-strat.png';
+import lowFidelityImage from '@/app/images/low-fi.png';
+import interactivePrototypeImage from '@/app/images/interactive-prototype.png';
+import visualIdentityImage from '@/app/images/visual-identity.png';
+import iterationHandoffImage from '@/app/images/iteration-handoff.png';
+import hiFiRevampImage from '@/app/images/hi-fi-revamp-page.png';
 
 const JOEY_STEPS = [
   {
     title: 'Market Research',
     shortDesc: 'Analyzing the tradesperson landscape and homeowner friction points',
+    image: marketResearchImage,
     goal: 'Identify the structural gaps in existing labor marketplaces that lead to a lack of trust.',
     decisions: [
       'Conducted 12+ deep-dive interviews with local tradespeople',
@@ -21,6 +29,7 @@ const JOEY_STEPS = [
   {
     title: 'UX Strategy',
     shortDesc: 'Mapping human-centered flows for a complex two-sided marketplace',
+    image: uxStrategyImage,
     goal: 'Create a seamless logic for homeowners to find verified labor without technical overhead.',
     decisions: [
       'Engineered a Job-Creation Wizard to standardize service requests',
@@ -32,6 +41,7 @@ const JOEY_STEPS = [
   {
     title: 'Low-Fidelity',
     shortDesc: 'Defining structural hierarchy and core navigation',
+    image: lowFidelityImage,
     goal: 'Validate the information hierarchy for both user personas (Homeowner vs. Tradesperson).',
     decisions: [
       'Prioritized thumb-zone navigation for mobile-first utility',
@@ -43,6 +53,7 @@ const JOEY_STEPS = [
   {
     title: 'Interactive Prototyping',
     shortDesc: 'Testing motion and state transitions in Mid-Fi',
+    image: interactivePrototypeImage,
     goal: 'Simulate the end-to-end booking experience to identify friction points.',
     decisions: [
       'Implemented conditional logic for verification uploads',
@@ -54,6 +65,7 @@ const JOEY_STEPS = [
   {
     title: 'Visual Identity',
     shortDesc: 'Applying Joey branding and high-fidelity polish',
+    image: visualIdentityImage,
     goal: 'Evoke a sense of safety and professionalism through a refined visual language.',
     decisions: [
       'Adopted a vibrant Joey Orange (#F56B09) for key conversion points',
@@ -65,6 +77,7 @@ const JOEY_STEPS = [
   {
     title: 'Iteration & Handoff',
     shortDesc: 'Refining the final UI based on developer feedback and testing',
+    image: iterationHandoffImage,
     goal: 'Scale the design system for real-world edge cases and technical constraints.',
     decisions: [
       'Redesigned the notification center for better task prioritization',
@@ -75,10 +88,12 @@ const JOEY_STEPS = [
     comparison: {
       early: {
         label: 'Initial High-Fi',
+        image: hiFiRevampImage,
         caption: 'Overly complex data tables that were difficult to parse on mobile devices.',
       },
       later: {
         label: 'Optimized Mobile UI',
+        image: interactivePrototypeImage,
         caption: 'Converted tables to a card-based swipe interface, increasing engagement by 35%.',
       },
     },

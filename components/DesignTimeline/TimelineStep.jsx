@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import Image from 'next/image';
 import styles from './TimelineStep.module.css';
 
 export function TimelineStep({ step, isOpen, onToggle, index }) {
@@ -82,7 +83,17 @@ export function TimelineStep({ step, isOpen, onToggle, index }) {
         <div className={styles.expandedContent} ref={contentRef}>
           <div className={styles.grid}>
             <div className={styles.leftColumn}>
-              <div className={styles.artifactPlaceholder} />
+              <div className={styles.artifactPlaceholder}>
+                {step.image && (
+                  <Image
+                    src={step.image}
+                    alt={`${step.title} artifact`}
+                    className={styles.artifactImage}
+                    fill
+                    sizes="(max-width: 940px) 100vw, 50vw"
+                  />
+                )}
+              </div>
               <div className={styles.artifactMeta}>
                 <span className={styles.artifactDot} />
                 <p>Project Artifact: {step.title} Stage</p>
@@ -124,13 +135,33 @@ export function TimelineStep({ step, isOpen, onToggle, index }) {
               <div className={styles.comparisonGrid}>
                 <div className={styles.comparisonColumn}>
                   <span className={styles.versionLabel}>v1.0 {step.comparison.early.label}</span>
-                  <div className={styles.versionPlaceholder} />
+                  <div className={styles.versionPlaceholder}>
+                    {step.comparison.early.image && (
+                      <Image
+                        src={step.comparison.early.image}
+                        alt={`v1.0 ${step.comparison.early.label}`}
+                        className={styles.versionImage}
+                        fill
+                        sizes="(max-width: 680px) 100vw, 50vw"
+                      />
+                    )}
+                  </div>
                   <p className={styles.versionCaption}>{step.comparison.early.caption}</p>
                 </div>
 
                 <div className={styles.comparisonColumn}>
                   <span className={styles.versionLabelStrong}>v2.0 {step.comparison.later.label}</span>
-                  <div className={styles.versionPlaceholder} />
+                  <div className={styles.versionPlaceholder}>
+                    {step.comparison.later.image && (
+                      <Image
+                        src={step.comparison.later.image}
+                        alt={`v2.0 ${step.comparison.later.label}`}
+                        className={styles.versionImage}
+                        fill
+                        sizes="(max-width: 680px) 100vw, 50vw"
+                      />
+                    )}
+                  </div>
                   <p className={styles.versionCaptionStrong}>{step.comparison.later.caption}</p>
                 </div>
               </div>

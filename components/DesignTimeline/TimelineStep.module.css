@@ -114,15 +114,18 @@
 }
 
 .artifactPlaceholder {
+  position: relative;
   aspect-ratio: 16 / 10;
   border-radius: 0.86rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(
-    145deg,
-    rgba(245, 107, 9, 0.14) 0%,
-    rgba(255, 255, 255, 0.04) 40%,
-    rgba(255, 255, 255, 0.02) 100%
-  );
+  overflow: hidden;
+  background: rgba(9, 12, 22, 0.95);
+}
+
+.artifactImage {
+  object-fit: contain;
+  object-position: center;
+  padding: 0.4rem;
 }
 
 .artifactMeta {
@@ -300,10 +303,18 @@
 }
 
 .versionPlaceholder {
+  position: relative;
   aspect-ratio: 16 / 9;
   border-radius: 0.74rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(9, 12, 22, 0.95);
+  overflow: hidden;
+}
+
+.versionImage {
+  object-fit: contain;
+  object-position: center;
+  padding: 0.25rem;
 }
 
 .versionCaption,
