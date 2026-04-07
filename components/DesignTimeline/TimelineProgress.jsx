@@ -40,37 +40,51 @@ export function TimelineProgress({ steps, currentStep, openSteps, onStepClick })
   }, [currentStep]);
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.track} aria-hidden="true" />
-      <div className={styles.progress} ref={progressLineRef} aria-hidden="true" />
+    <div className={styles['timeline-progress']}>
+      <div className={styles['timeline-progress__track']} aria-hidden="true" />
+      <div className={styles['timeline-progress__fill']} ref={progressLineRef} aria-hidden="true" />
 
-      <div className={styles.nodeRow}>
+      <div className={styles['timeline-progress__nodes']}>
         {steps.map((step, index) => {
           const isOpen = openSteps.includes(index);
           const isCurrent = index === currentStep;
           const stepNumber = `Step ${String(index + 1).padStart(2, '0')}`;
 
+          const nodeClass = [
+            styles['timeline-progress__node'],
+            isOpen ? styles['timeline-progress__node--active'] : '',
+            isCurrent ? styles['timeline-progress__node--current'] : '',
+          ]
+            .filter(Boolean)
+            .join(' ');
+
           return (
             <button
               key={step}
               type="button"
-              className={styles.nodeButton}
+              className={styles['timeline-progress__node-button']}
               onClick={() => onStepClick(index)}
               aria-label={`${stepNumber}: ${step}`}
             >
               <span
-                className={`${styles.node} ${isOpen ? styles.nodeActive : ''} ${
-                  isCurrent ? styles.nodeCurrent : ''
-                }`}
+                className={nodeClass}
                 ref={(el) => {
                   nodeRefs.current[index] = el;
                 }}
               />
-              <span className={styles.labelGroup}>
-                <span className={`${styles.stepLabel} ${isOpen ? styles.stepLabelActive : ''}`}>
+              <span className={styles['timeline-progress__labels']}>
+                <span
+                  className={`${styles['timeline-progress__step-label']} ${
+                    isOpen ? styles['timeline-progress__step-label--active'] : ''
+                  }`}
+                >
                   {stepNumber}
                 </span>
-                <span className={`${styles.titleLabel} ${isOpen ? styles.titleCurrent : ''}`}>
+                <span
+                  className={`${styles['timeline-progress__step-title']} ${
+                    isOpen ? styles['timeline-progress__step-title--current'] : ''
+                  }`}
+                >
                   {step}
                 </span>
               </span>

@@ -57,112 +57,122 @@ export function TimelineStep({ step, isOpen, onToggle, index }) {
     }
   }, [isOpen]);
 
+  const blockClass = `${styles['timeline-step']} ${isOpen ? styles['timeline-step--open'] : styles['timeline-step--closed']}`;
+
   return (
-    <article className={`${styles.card} ${isOpen ? styles.cardOpen : styles.cardClosed}`} ref={rootRef}>
-      <button type="button" onClick={onToggle} className={styles.cardButton} aria-expanded={isOpen}>
-        <div className={styles.leftMeta}>
-          <span className={styles.indexLabel}>{String(index + 1).padStart(2, '0')}</span>
-          <div className={styles.titleGroup}>
-            <h3 className={styles.title}>{step.title}</h3>
-            <p className={styles.shortDesc}>{step.shortDesc}</p>
+    <article className={blockClass} ref={rootRef}>
+      <button type="button" onClick={onToggle} className={styles['timeline-step__trigger']} aria-expanded={isOpen}>
+        <div className={styles['timeline-step__trigger-meta']}>
+          <span className={styles['timeline-step__index']}>{String(index + 1).padStart(2, '0')}</span>
+          <div className={styles['timeline-step__titles']}>
+            <h3 className={styles['timeline-step__title']}>{step.title}</h3>
+            <p className={styles['timeline-step__description']}>{step.shortDesc}</p>
           </div>
         </div>
-        <div className={styles.toggleMeta}>
+        <div className={styles['timeline-step__toggle']}>
           <span>{isOpen ? 'Collapse' : 'Expand Details'}</span>
-          <span className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`}>
+          <span className={`${styles['timeline-step__chevron']} ${isOpen ? styles['timeline-step__chevron--open'] : ''}`}>
             <ChevronIcon />
           </span>
         </div>
       </button>
 
       <div
-        className={styles.expanded}
+        className={styles['timeline-step__body']}
         ref={bodyRef}
         style={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
       >
-        <div className={styles.expandedContent} ref={contentRef}>
-          <div className={styles.grid}>
-            <div className={styles.leftColumn}>
-              <div className={styles.artifactPlaceholder}>
+        <div className={styles['timeline-step__content']} ref={contentRef}>
+          <div className={styles['timeline-step__grid']}>
+            <div className={styles['timeline-step__column']}>
+              <div className={styles['timeline-step__artifact']}>
                 {step.image && (
                   <Image
                     src={step.image}
                     alt={`${step.title} artifact`}
-                    className={styles.artifactImage}
+                    className={styles['timeline-step__artifact-image']}
                     fill
                     sizes="(max-width: 940px) 100vw, 50vw"
                   />
                 )}
               </div>
-              <div className={styles.artifactMeta}>
-                <span className={styles.artifactDot} />
+              <div className={styles['timeline-step__artifact-footer']}>
+                <span className={styles['timeline-step__artifact-dot']} />
                 <p>Project Artifact: {step.title} Stage</p>
               </div>
             </div>
 
-            <div className={styles.rightColumn}>
-              <div className={styles.block}>
-                <h4 className={styles.blockTitle}>Objective</h4>
-                <p className={styles.blockText}>{step.goal}</p>
+            <div className={`${styles['timeline-step__column']} ${styles['timeline-step__column--aside']}`}>
+              <div className={styles['timeline-step__block']}>
+                <h4 className={styles['timeline-step__block-heading']}>Objective</h4>
+                <p className={styles['timeline-step__block-text']}>{step.goal}</p>
               </div>
 
-              <div className={styles.block}>
-                <h4 className={styles.blockTitleMuted}>Critical Decisions</h4>
-                <ul className={styles.decisionList}>
+              <div className={styles['timeline-step__block']}>
+                <h4 className={`${styles['timeline-step__block-heading']} ${styles['timeline-step__block-heading--muted']}`}>
+                  Critical Decisions
+                </h4>
+                <ul className={styles['timeline-step__decisions']}>
                   {step.decisions.map((decision) => (
-                    <li key={decision} className={styles.decisionItem}>
+                    <li key={decision} className={styles['timeline-step__decision']}>
                       <CheckCircleIcon />
-                      <span>{decision}</span>
+                      <span className={styles['timeline-step__decision-text']}>{decision}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className={styles.impactCard}>
-                <div className={styles.impactTag}>Strategic Impact</div>
-                <p>"{step.impact}"</p>
+              <div className={styles['timeline-step__impact']}>
+                <div className={styles['timeline-step__impact-tag']}>Strategic Impact</div>
+                <p className={styles['timeline-step__impact-text']}>"{step.impact}"</p>
               </div>
             </div>
           </div>
 
           {step.comparison && (
-            <div className={styles.comparison}>
-              <div className={styles.comparisonHeader}>
-                <h4>The Iteration Loop</h4>
-                <p>Refining through feedback</p>
+            <div className={styles['timeline-step__comparison']}>
+              <div className={styles['timeline-step__comparison-header']}>
+                <h4 className={styles['timeline-step__comparison-kicker']}>The Iteration Loop</h4>
+                <p className={styles['timeline-step__comparison-title']}>Refining through feedback</p>
               </div>
 
-              <div className={styles.comparisonGrid}>
-                <div className={styles.comparisonColumn}>
-                  <span className={styles.versionLabel}>v1.0 {step.comparison.early.label}</span>
-                  <div className={styles.versionPlaceholder}>
+              <div className={styles['timeline-step__comparison-grid']}>
+                <div className={styles['timeline-step__comparison-column']}>
+                  <span className={styles['timeline-step__version-label']}>
+                    v1.0 {step.comparison.early.label}
+                  </span>
+                  <div className={styles['timeline-step__version-frame']}>
                     {step.comparison.early.image && (
                       <Image
                         src={step.comparison.early.image}
                         alt={`v1.0 ${step.comparison.early.label}`}
-                        className={styles.versionImage}
+                        className={styles['timeline-step__version-image']}
                         fill
                         sizes="(max-width: 680px) 100vw, 50vw"
                       />
                     )}
                   </div>
-                  <p className={styles.versionCaption}>{step.comparison.early.caption}</p>
+                  <p className={styles['timeline-step__version-caption']}>{step.comparison.early.caption}</p>
                 </div>
 
-                <div className={styles.comparisonColumn}>
-                  <span className={styles.versionLabelStrong}>v2.0 {step.comparison.later.label}</span>
-                  <div className={styles.versionPlaceholder}>
+                <div className={styles['timeline-step__comparison-column']}>
+                  <span className={`${styles['timeline-step__version-label']} ${styles['timeline-step__version-label--emphasized']}`}>
+                    v2.0 {step.comparison.later.label}
+                  </span>
+                  <div className={styles['timeline-step__version-frame']}>
                     {step.comparison.later.image && (
                       <Image
                         src={step.comparison.later.image}
                         alt={`v2.0 ${step.comparison.later.label}`}
-                        className={styles.versionImage}
+                        className={styles['timeline-step__version-image']}
                         fill
                         sizes="(max-width: 680px) 100vw, 50vw"
                       />
                     )}
                   </div>
-                  <p className={styles.versionCaptionStrong}>{step.comparison.later.caption}</p>
+                  <p className={`${styles['timeline-step__version-caption']} ${styles['timeline-step__version-caption--emphasized']}`}>
+                    {step.comparison.later.caption}
+                  </p>
                 </div>
               </div>
             </div>
@@ -189,7 +199,14 @@ function ChevronIcon() {
 
 function CheckCircleIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" className={styles.checkIcon}>
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+      className={styles['timeline-step__decision-icon']}
+    >
       <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.6" opacity="0.4" />
       <path d="M8 12.5l2.4 2.4L16 9.7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
