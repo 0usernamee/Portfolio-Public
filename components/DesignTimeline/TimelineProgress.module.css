@@ -1,4 +1,5 @@
-.wrapper {
+/* Block: timeline-progress */
+.timeline-progress {
   position: relative;
   width: min(68rem, calc(100% - 2rem));
   margin: 0 auto 5.6rem;
@@ -6,8 +7,8 @@
   z-index: 2;
 }
 
-.track,
-.progress {
+.timeline-progress__track,
+.timeline-progress__fill {
   position: absolute;
   left: 0;
   right: 0;
@@ -16,24 +17,24 @@
   transform: translateY(-50%);
 }
 
-.track {
+.timeline-progress__track {
   background: rgba(255, 255, 255, 0.16);
 }
 
-.progress {
+.timeline-progress__fill {
   background: linear-gradient(90deg, rgba(245, 107, 9, 1) 0%, rgba(245, 107, 9, 0.42) 100%);
   transform-origin: left center;
   transform: scaleX(0);
 }
 
-.nodeRow {
+.timeline-progress__nodes {
   position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
 
-.nodeButton {
+.timeline-progress__node-button {
   border: 0;
   padding: 0;
   margin: 0;
@@ -45,7 +46,7 @@
   cursor: pointer;
 }
 
-.node {
+.timeline-progress__node {
   width: 0.78rem;
   height: 0.78rem;
   border-radius: 999px;
@@ -54,18 +55,18 @@
   transition: all 0.26s ease;
 }
 
-.nodeActive {
+.timeline-progress__node--active {
   border-color: rgba(245, 107, 9, 0.85);
   background: rgba(245, 107, 9, 0.8);
   box-shadow: 0 0 10px rgba(245, 107, 9, 0.25);
 }
 
-.nodeCurrent {
+.timeline-progress__node--current {
   border-color: rgba(245, 107, 9, 1);
   box-shadow: 0 0 16px rgba(245, 107, 9, 0.34);
 }
 
-.labelGroup {
+.timeline-progress__labels {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,7 +74,7 @@
   min-width: 5.4rem;
 }
 
-.stepLabel {
+.timeline-progress__step-label {
   font-size: 0.58rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -82,28 +83,28 @@
   color: rgba(255, 255, 255, 0.28);
 }
 
-.stepLabelActive {
+.timeline-progress__step-label--active {
   color: rgba(255, 255, 255, 0.56);
 }
 
-.titleLabel {
+.timeline-progress__step-title {
   font-size: 0.69rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.36);
   white-space: nowrap;
 }
 
-.titleCurrent {
+.timeline-progress__step-title--current {
   color: rgba(255, 255, 255, 0.78);
 }
 
 @media (max-width: 900px) {
-  .wrapper {
+  .timeline-progress {
     overflow-x: auto;
     padding-bottom: 3.6rem;
   }
 
-  .nodeRow {
+  .timeline-progress__nodes {
     min-width: 52rem;
     gap: 1.5rem;
     justify-content: space-between;

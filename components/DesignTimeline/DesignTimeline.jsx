@@ -121,9 +121,9 @@ export default function DesignTimeline() {
   };
 
   return (
-    <section className={styles.section}>
-      <div className={styles.glowRight} aria-hidden="true" />
-      <div className={styles.glowLeft} aria-hidden="true" />
+    <section className={styles['design-timeline']}>
+      <div className={`${styles['design-timeline__glow']} ${styles['design-timeline__glow--right']}`} aria-hidden="true" />
+      <div className={`${styles['design-timeline__glow']} ${styles['design-timeline__glow--left']}`} aria-hidden="true" />
 
       <TimelineHeader />
 
@@ -134,10 +134,10 @@ export default function DesignTimeline() {
         onStepClick={setProgressStep}
       />
 
-      <div className={styles.container}>
-        <ol className={styles.stepList}>
+      <div className={styles['design-timeline__container']}>
+        <ol className={styles['design-timeline__list']}>
           {JOEY_STEPS.map((step, index) => (
-            <li key={step.title} className={styles.stepListItem}>
+            <li key={step.title} className={styles['design-timeline__list-item']}>
               <TimelineStep
                 step={step}
                 index={index}
@@ -148,13 +148,16 @@ export default function DesignTimeline() {
           ))}
         </ol>
 
-        <div className={styles.conclusion}>
-          <p className={styles.quote}>
-            "My process ensured that <span>every visual decision</span> was grounded in research and
-            usability, building a foundation of trust for Joey users."
+        <div className={styles['design-timeline__conclusion']}>
+          <p className={styles['design-timeline__quote']}>
+            "My process ensured that{' '}
+            <span className={styles['design-timeline__quote-highlight']}>every visual decision</span> was grounded in research
+            and usability, building a foundation of trust for Joey users."
           </p>
-          <div className={styles.conclusionActions}>
-            <button className={styles.ctaButton}>Continue to Final Designs</button>
+          <div className={styles['design-timeline__conclusion-actions']}>
+            <button type="button" className={styles['design-timeline__cta']}>
+              Continue to Final Designs
+            </button>
             <ArrowDownIcon />
           </div>
         </div>
@@ -165,7 +168,7 @@ export default function DesignTimeline() {
 
 function ArrowDownIcon() {
   return (
-    <svg className={styles.arrowIcon} width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+    <svg className={styles['design-timeline__arrow-icon']} width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M12 4v13m0 0l-5-5m5 5l5-5"
         fill="none"

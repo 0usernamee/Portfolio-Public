@@ -1,4 +1,5 @@
-.header {
+/* Block: timeline-header */
+.timeline-header {
   width: min(64rem, calc(100% - 2rem));
   margin: 0 auto 3.5rem;
   text-align: center;
@@ -6,7 +7,7 @@
   z-index: 2;
 }
 
-.pill {
+.timeline-header__eyebrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +18,7 @@
   margin-bottom: 1.4rem;
 }
 
-.pill span {
+.timeline-header__eyebrow-text {
   font-size: 0.67rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -25,7 +26,7 @@
   color: rgba(255, 255, 255, 0.55);
 }
 
-.title {
+.timeline-header__title {
   margin: 0;
   font-size: clamp(2.15rem, 6vw, 4rem);
   font-weight: 900;
@@ -34,7 +35,7 @@
   line-height: 1.06;
 }
 
-.subtitle {
+.timeline-header__subtitle {
   margin: 1.15rem auto 0;
   max-width: 42rem;
   font-size: clamp(1rem, 2.1vw, 1.3rem);
@@ -44,7 +45,7 @@
 }
 
 @media (max-width: 900px) {
-  .header {
+  .timeline-header {
     margin-bottom: 2.4rem;
   }
 }
